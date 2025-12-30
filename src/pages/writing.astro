@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    title: 'Making agents reliable: 5 failure modes I see most',
+    date: '2026-01-05',
+    blurb: 'Tool errors, state drift, retrieval mismatch, overconfidence, and eval gaps — plus fixes.',
+    href: '#',
+  },
+  {
+    title: 'RAG quality: a lightweight evaluation loop you can actually run',
+    date: '2026-01-12',
+    blurb: 'Test retrieval, reranking, and response quality without turning your life into a benchmark project.',
+    href: '#',
+  },
+  {
+    title: 'Secure environments: what changes when you can’t call the internet',
+    date: '2026-01-20',
+    blurb: 'Patterns for air-gapped systems: caching, offline corpora, constrained tools, and governance.',
+    href: '#',
+  },
+];
+---
+<BaseLayout title="Writing" current="/writing">
+  <section class="section">
+    <div class="container">
+      <h1>Writing</h1>
+      <p class="lede">
+        Short, practical notes. “What I wish I had when I built this.”
+      </p>
+
+      <div class="grid" style="margin-top: 18px;">
+        {posts.map((p) => (
+          <article class="card pad">
+            <div class="top">
+              <h2 style="margin:0;">{p.title}</h2>
+              <span class="pill">{p.date}</span>
+            </div>
+            <p class="small">{p.blurb}</p>
+            <a class="btn" href={p.href}>Read</a>
+          </article>
+        ))}
+      </div>
+
+      <div class="card pad" style="margin-top: 18px;">
+        <h2>Coming soon</h2>
+        <ul>
+          <li>Orchestration patterns: LangGraph vs “just a DAG”</li>
+          <li>Confidence + citations: when to refuse, when to ask questions</li>
+          <li>Reranking in practice: where it helps, where it doesn’t</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .pad{ padding: 18px; }
+  .top{ display:flex; justify-content:space-between; align-items:center; gap: 10px; flex-wrap:wrap; }
+  </style>
+</BaseLayout>
