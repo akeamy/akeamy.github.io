@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { featuredProjects, contentTopics } from '../content/siteData.js';
+---
+<BaseLayout title="" current="/">
+  <section class="section hero">
+    <div class="container grid heroGrid">
+      <div class="card heroCard">
+        <div class="inner">
+          <div class="kicker">
+            <span class="badge">Senior AI Scientist • Solutions Architect</span>
+            <span class="pill">Agentic AI • RAG • Knowledge Graphs</span>
+          </div>
+
+          <h1>Serious engineering, soft edges — and content that actually teaches.</h1>
+
+          <p class="lede">
+            I build production-grade AI systems: agentic workflows, retrieval, and graph grounding —
+            designed for real constraints (security, reliability, and measurable quality).
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="/projects">See projects</a>
+            <a class="btn" href="/writing">Read my notes</a>
+            <a class="btn" href="/contact">Work with me</a>
+          </div>
+
+          <div class="mini">
+            <div class="pill"><strong>Brand:</strong> credible, practical, and not hype</div>
+            <div class="pill"><strong>Creator:</strong> Instagram/TikTok teaching (agents, RAG, LLM reliability)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card headshot">
+        <img src="/images/headshot.png" alt="Portrait of Alexandra Keamy" loading="eager" />
+        <div class="overlay">
+          <div class="row">
+            <span class="pill">Defense • Cyber • Applied AI</span>
+            <span class="pill">Orchestration • Eval • Traceability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container hr"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>What I work on</h2>
+        <p class="lede">
+          The intersection of LLMs, orchestration, and real-world constraints: auditability, security,
+          reliability, and measurable quality.
+        </p>
+      </div>
+
+      <div class="grid cols3">
+        <div class="card pad">
+          <h3>Agentic AI systems</h3>
+          <p class="small">Deterministic where needed: planning, tools, structured extraction, and guardrails.</p>
+          <div class="tags">
+            <span class="badge">LangGraph</span><span class="badge">CrewAI</span><span class="badge">PydanticAI</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>RAG that holds up</h3>
+          <p class="small">Chunking, reranking, eval, citations, and confidence-driven responses.</p>
+          <div class="tags">
+            <span class="badge">Retrieval</span><span class="badge">Rerank</span><span class="badge">Evaluation</span>
+          </div>
+        </div>
+        <div class="card pad">
+          <h3>Secure deployments</h3>
+          <p class="small">Air-gapped and regulated environments: workflows, governance, and deployment constraints.</p>
+          <div class="tags">
+            <span class="badge">Secure AI</span><span class="badge">GovCloud</span><span class="badge">LLMOps</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Featured projects</h2>
+        <p class="lede">A few highlights — more in the Projects tab.</p>
+      </div>
+      <div class="grid cols3">
+        {featuredProjects.map((p) => <ProjectCard project={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Content I’m building</h2>
+        <p class="lede">Teaching-first, practical, and grounded.</p>
+      </div>
+
+      <div class="grid cols2">
+        {contentTopics.map((t) => (
+          <div class="card pad">
+            <h3>{t.title}</h3>
+            <p class="small">{t.desc}</p>
+          </div>
+        ))}
+
+        <div class="card pad callout">
+          <h3>Collabs / talks</h3>
+          <p class="small">
+            If you’re building agentic workflows, RAG systems, or need help making LLMs reliable in production,
+            reach out through the contact form.
+          </p>
+          <a class="btn primary" href="/contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .hero{ padding-top: 26px; }
+  .heroGrid{ grid-template-columns: 1.35fr .85fr; align-items: stretch; }
+  .heroCard{ padding: 18px; }
+  .heroCard .inner{ padding: 14px; }
+  .kicker{ display:flex; flex-wrap:wrap; gap: 10px; margin-bottom: 14px; }
+  .cta{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .mini{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .headshot{ position: relative; overflow:hidden; }
+  .headshot img{
+    width: 100%; height: 100%; object-fit: cover; display:block;
+    filter: grayscale(10%);
+    transform: scale(1.02);
+  }
+  .overlay{
+    position:absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.55));
+    display:flex; align-items:flex-end; padding: 18px;
+  }
+  .row{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .sectionHead{ margin-bottom: 16px; }
+  .cols3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cols2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pad{ padding: 18px; }
+  .tags{ display:flex; gap: 8px; flex-wrap:wrap; margin-top: 10px; }
+  .callout{ display:flex; flex-direction:column; gap: 10px; }
+  @media (max-width: 980px){ .heroGrid{ grid-template-columns: 1fr; } }
+  @media (max-width: 860px){
+    .cols3{ grid-template-columns: 1fr; }
+    .cols2{ grid-template-columns: 1fr; }
+  }
+  </style>
+</BaseLayout>
