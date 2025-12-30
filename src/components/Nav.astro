@@ -1,0 +1,122 @@
+---
+const { current } = Astro.props;
+const nav = [
+  { label: 'Home', href: '/' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Writing', href: '/writing' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+<header class="top">
+  <div class="container wrap">
+    <a class="brand" href="/">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="name">Alexandra Keamy</span>
+      <span class="role">AI Scientist • Solutions Architect</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      {nav.map((item) => (
+        <a class:list={['link', current === item.href ? 'active' : '']} href={item.href}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="toggles">
+      <button class="btn" id="accentBtn" type="button" title="Toggle accent (Pink/Sky)">
+        Accent
+      </button>
+      <button class="btn" id="themeBtn" type="button" title="Toggle theme (Light/Dark)">
+        Theme
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+.top{
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  border-bottom: 1px solid var(--border);
+}
+.wrap{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  padding: 14px 0;
+}
+.brand{
+  display:flex;
+  align-items:baseline;
+  gap: 10px;
+  min-width: 230px;
+}
+.dot{
+  width: 10px; height: 10px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+.name{ font-weight: 800; letter-spacing: -0.02em; }
+.role{ color: var(--muted); font-size: .95rem; display:none; }
+.nav{
+  display:flex;
+  align-items:center;
+  gap: 6px;
+  padding: 6px;
+  border:1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,.55);
+}
+:global(html[data-theme="dark"]) .nav{ background: rgba(255,255,255,.06); }
+.link{
+  padding: .5rem .75rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-weight: 650;
+  font-size: .95rem;
+}
+.link.active{
+  color: var(--text);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.toggles{ display:flex; gap: 10px; }
+@media (min-width: 860px){ .role{ display:inline; } }
+@media (max-width: 740px){ .nav{ display:none; } }
+</style>
+
+<script>
+  const root = document.documentElement;
+
+  // Theme
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme && savedTheme !== 'light') root.setAttribute('data-theme', savedTheme);
+
+  // Accent (default is pink via CSS; we store optional override = sky)
+  const savedAccent = localStorage.getItem('accent');
+  if (savedAccent) root.setAttribute('data-accent', savedAccent);
+
+  function toggleTheme(){
+    const cur = root.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    if (next === 'light') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', 'dark');
+    localStorage.setItem('theme', next);
+  }
+
+  function toggleAccent(){
+    const cur = root.getAttribute('data-accent');
+    const next = cur === 'sky' ? '' : 'sky'; // empty = pink default
+    if (!next) root.removeAttribute('data-accent');
+    else root.setAttribute('data-accent', next);
+    localStorage.setItem('accent', next);
+  }
+
+  document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
+  document.getElementById('accentBtn')?.addEventListener('click', toggleAccent);
+</script>
