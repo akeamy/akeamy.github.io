@@ -1,31 +1,20 @@
-# akeamy.github.io
-# Alexandra Keamy
+# Alexandra Keamy — Portfolio (Astro)
 
-Senior AI Engineer & Solutions Architect  
-Agentic AI • LLM Systems • RAG • • Knowledge Graphs • Applied ML in National Security
+Modern, responsive portfolio with:
+- Tabs/nav (Home, Projects, Writing, Contact)
+- Light/Dark toggle
+- Accent default: Light Pink (soft but serious)
+- Project cards + content sections
+- Contact form (Formspree) — no public email
+- GitHub Pages deployment via Actions
 
-I design and deploy production-grade AI systems with a focus on
-agentic workflows, retrieval-augmented generation, and reliability in
-high-stakes, regulated environments.
+## Run locally
+npm install
+npm run dev
 
-This site serves as a technical portfolio highlighting selected systems,
-design patterns, demos, and writing from my work across defense,
-cybersecurity, and applied AI as well as the disciplines and interests
-that shape how I work.
+## Deploy (GitHub Pages)
+GitHub: Settings → Pages → Build and deployment → Source = GitHub Actions
+Push to main, wait for workflow.
 
----
-
-## What I Work On
-
-My work sits at the intersection of **LLMs, orchestration, and real-world constraints**.
-
-Core focus areas:
-- **Agentic AI systems** (LangGraph, CrewAI, ADK-style orchestration)
-- **RAG pipelines** with semantic chunking, reranking, and evaluation
-- **Hallucination mitigation & traceability**
-- **Secure / air-gapped / GovCloud deployments**
-- **Applied ML** for cyber, intelligence, and enterprise workflows
-- National Security domain Expertise 
-
-I prioritize systems that are **auditable, deterministic where needed,
-and deployable beyond demos**.
+## Contact form
+Create a Formspree form and replace the action URL in src/pages/contact.astro
