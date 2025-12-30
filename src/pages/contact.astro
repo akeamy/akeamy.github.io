@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { socials } from '../content/siteData.js';
+
+// Replace this with your Formspree endpoint after you create a form:
+// Example: https://formspree.io/f/abcdwxyz
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOURFORMID';
+---
+<BaseLayout title="Contact" current="/contact">
+  <section class="section">
+    <div class="container">
+      <h1>Contact</h1>
+      <p class="lede">
+        For collaborations, speaking, consulting, or content partnerships — use the form below.
+        (No public email on this site.)
+      </p>
+
+      <div class="grid cols2" style="margin-top: 18px;">
+        <div class="card pad">
+          <h2>Find me</h2>
+          <div class="links">
+            {socials.map((s) => (
+              <a class="btn" href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
+            ))}
+            <a class="btn primary" href={FORMSPREE_ENDPOINT} target="_blank" rel="noreferrer">
+              Open contact form link
+            </a>
+          </div>
+
+          <p class="small" style="margin-top: 12px;">
+            Best outreach: include a 1–2 sentence brief (what you’re building + what you need).
+          </p>
+
+          <div class="pill" style="margin-top: 12px;">
+            <strong>Topics:</strong> Agentic AI • RAG • Eval • Traceability • Secure deployments
+          </div>
+        </div>
+
+        <div class="card pad">
+          <h2>Send a message</h2>
+
+          <form action={FORMSPREE_ENDPOINT} method="POST">
+            <div style="display:grid; gap: 12px;">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" required />
+              </div>
+
+              <div>
+                <label for="replyto">Your email (for replies)</label>
+                <input id="replyto" name="email" type="email" required />
+              </div>
+
+              <div>
+                <label for="topic">Topic</label>
+                <input id="topic" name="topic" placeholder="Collab / speaking / consulting / content…" />
+              </div>
+
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Quick context + what you’re looking for…"></textarea>
+              </div>
+
+              <!-- Optional: redirect after submit -->
+              <input type="hidden" name="_subject" value="New inquiry from alexandra site" />
+              <button class="btn primary" type="submit">Send</button>
+
+              <p class="small">
+                Note: Replace <code>YOURFORMID</code> in this file with your Formspree form ID.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .cols2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pad{ padding: 18px; }
+  .links{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 10px; }
+  @media (max-width: 860px){ .cols2{ grid-template-columns: 1fr; } }
+  </style>
+</BaseLayout>
