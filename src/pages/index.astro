@@ -9,15 +9,14 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
       <div class="card heroCard">
         <div class="inner">
           <div class="kicker">
-            <span class="badge">Senior AI Scientist • Solutions Architect</span>
-            <span class="pill">Agentic AI • RAG • Knowledge Graphs</span>
+            <span class="badge">Principal Investigator • Technical Lead • Former FBI</span>
+            <span class="pill">National Security AI • Defense R&D</span>
           </div>
 
-          <h1>Serious engineering, soft edges — and content that actually teaches.</h1>
+          <h1>AI systems for national security — that actually work</h1>
 
           <p class="lede">
-            I build production-grade AI systems: agentic workflows, retrieval, and graph grounding —
-            designed for real constraints (security, reliability, and measurable quality).
+            I lead R&D and build production AI for defense and intelligence. Multi-agent workflows, Graph-RAG, secure deployments in classified environments. From FBI analyst to DoD AI lead — I design for real constraints, not demos.
           </p>
 
           <div class="cta">
@@ -27,8 +26,9 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
           </div>
 
           <div class="mini">
-            <div class="pill"><strong>Brand:</strong> credible, practical, and not hype</div>
-            <div class="pill"><strong>Creator:</strong> Instagram/TikTok teaching (agents, RAG, LLM reliability)</div>
+            <span class="pill">🔒 Secret clearance (former TS/SCI)</span>
+            <span class="pill">🎤 Speaker & AI educator</span>
+            <span class="pill">💼 Consulting available</span>
           </div>
         </div>
       </div>
@@ -37,8 +37,8 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
         <img src="/images/headshot.png" alt="Portrait of Alexandra Keamy" loading="eager" />
         <div class="overlay">
           <div class="row">
-            <span class="pill">Defense • Cyber • Applied AI</span>
-            <span class="pill">Orchestration • Eval • Traceability</span>
+            <span class="pill">Defense • Intelligence • Enterprise</span>
+            <span class="pill">Agents • RAG • Secure ML</span>
           </div>
         </div>
       </div>
@@ -52,29 +52,28 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
       <div class="sectionHead">
         <h2>What I work on</h2>
         <p class="lede">
-          The intersection of LLMs, orchestration, and real-world constraints: auditability, security,
-          reliability, and measurable quality.
+          Production AI for national security and enterprise: agentic workflows, RAG systems, and secure deployments that handle real operational constraints.
         </p>
       </div>
 
       <div class="grid cols3">
         <div class="card pad">
           <h3>Agentic AI systems</h3>
-          <p class="small">Deterministic where needed: planning, tools, structured extraction, and guardrails.</p>
+          <p class="small">Multi-agent orchestration for planning, structured extraction, and decision workflows. Deterministic where needed, with guardrails and traceability.</p>
           <div class="tags">
             <span class="badge">LangGraph</span><span class="badge">CrewAI</span><span class="badge">PydanticAI</span>
           </div>
         </div>
         <div class="card pad">
-          <h3>RAG that holds up</h3>
-          <p class="small">Chunking, reranking, eval, citations, and confidence-driven responses.</p>
+          <h3>RAG that doesn't lie</h3>
+          <p class="small">Graph-RAG, knowledge graphs, retrieval patterns that improve traceability and reduce hallucinations. Built for high-stakes environments.</p>
           <div class="tags">
-            <span class="badge">Retrieval</span><span class="badge">Rerank</span><span class="badge">Evaluation</span>
+            <span class="badge">Graph-RAG</span><span class="badge">Rerank</span><span class="badge">Evaluation</span>
           </div>
         </div>
         <div class="card pad">
-          <h3>Secure deployments</h3>
-          <p class="small">Air-gapped and regulated environments: workflows, governance, and deployment constraints.</p>
+          <h3>Secure / constrained deployments</h3>
+          <p class="small">Air-gapped workflows, GovCloud, classified networks. Fine-tuning and LLMOps where you can't call the internet.</p>
           <div class="tags">
             <span class="badge">Secure AI</span><span class="badge">GovCloud</span><span class="badge">LLMOps</span>
           </div>
@@ -87,7 +86,7 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
     <div class="container">
       <div class="sectionHead">
         <h2>Featured projects</h2>
-        <p class="lede">A few highlights — more in the Projects tab.</p>
+        <p class="lede">Systems I've built for defense, intelligence, and enterprise — more in the Projects tab.</p>
       </div>
       <div class="grid cols3">
         {featuredProjects.map((p) => <ProjectCard project={p} />)}
@@ -98,8 +97,8 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
   <section class="section">
     <div class="container">
       <div class="sectionHead">
-        <h2>Content I’m building</h2>
-        <p class="lede">Teaching-first, practical, and grounded.</p>
+        <h2>Teaching & building in public</h2>
+        <p class="lede">Practical content on what works (and what breaks) in production AI.</p>
       </div>
 
       <div class="grid cols2">
@@ -111,10 +110,9 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
         ))}
 
         <div class="card pad callout">
-          <h3>Collabs / talks</h3>
+          <h3>Speaking & consulting</h3>
           <p class="small">
-            If you’re building agentic workflows, RAG systems, or need help making LLMs reliable in production,
-            reach out through the contact form.
+            Available for talks on agentic AI, RAG systems, and secure ML deployments. Consulting on production AI architecture, team building, and evaluation frameworks for defense and enterprise.
           </p>
           <a class="btn primary" href="/contact">Contact</a>
         </div>
