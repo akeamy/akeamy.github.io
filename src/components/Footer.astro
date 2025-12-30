@@ -1,0 +1,49 @@
+---
+import { socials } from '../content/siteData.js';
+---
+<footer class="footer">
+  <div class="container inner">
+    <div class="left">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Alexandra Keamy</span>
+      </div>
+      <p class="small">
+        Agentic AI • RAG • Knowledge Graphs • Secure deployments • Applied ML
+      </p>
+    </div>
+
+    <div class="right">
+      <div class="links">
+        {socials.map((s) => (
+          <a class="pill" href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
+        ))}
+      </div>
+      <p class="small">© {new Date().getFullYear()} • Built with Astro • Hosted on GitHub Pages</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+.footer{ padding: 38px 0 54px; }
+.inner{
+  display:flex;
+  justify-content:space-between;
+  gap: 18px;
+  align-items:flex-start;
+}
+.brand{ display:flex; gap: 10px; align-items:center; font-weight: 800; }
+.dot{
+  width: 10px; height: 10px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 6px var(--accent-soft);
+}
+.links{ display:flex; flex-wrap: wrap; gap: 10px; justify-content:flex-end; }
+.left{ max-width: 520px; }
+.right{ text-align:right; }
+@media (max-width: 760px){
+  .inner{ flex-direction: column; }
+  .right{ text-align:left; }
+  .links{ justify-content:flex-start; }
+}
+</style>
