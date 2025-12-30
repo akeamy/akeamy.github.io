@@ -1,0 +1,24 @@
+---
+const { project } = Astro.props;
+---
+<article class="card p">
+  <div class="top">
+    <h3>{project.title}</h3>
+    <div class="tags">
+      {project.tags.map((t) => <span class="badge">{t}</span>)}
+    </div>
+  </div>
+  <p class="small">{project.blurb}</p>
+  <div class="links">
+    {project.links?.map((l) => (
+      <a class="btn" href={l.href}>{l.label}</a>
+    ))}
+  </div>
+</article>
+
+<style>
+.p{ padding: 18px; }
+.top{ display:flex; flex-direction:column; gap: 10px; }
+.tags{ display:flex; flex-wrap:wrap; gap: 8px; }
+.links{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 10px; }
+</style>
