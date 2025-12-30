@@ -2,10 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { socials } from '../content/siteData.js';
 
-// Replace this with your Formspree endpoint after you create a form:
-// Example: https://formspree.io/f/abcdwxyz
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOURFORMID';
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
 ---
+
 <BaseLayout title="Contact" current="/contact">
   <section class="section">
     <div class="container">
@@ -22,8 +21,8 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOURFORMID';
             {socials.map((s) => (
               <a class="btn" href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
             ))}
-            <a class="btn primary" href={FORMSPREE_ENDPOINT} target="_blank" rel="noreferrer">
-              Open contact form link
+            <a class="btn primary" href="#send">
+              Send a message
             </a>
           </div>
 
@@ -36,10 +35,17 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOURFORMID';
           </div>
         </div>
 
-        <div class="card pad">
+        <div class="card pad" id="send">
           <h2>Send a message</h2>
 
-          <form action={FORMSPREE_ENDPOINT} method="POST">
+          <form action={FORMSUBMIT_ENDPOINT} method="POST">
+            <!-- FormSubmit config -->
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="New inquiry from alexandra site" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://akeamy.github.io/contact?sent=1" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
             <div style="display:grid; gap: 12px;">
               <div>
                 <label for="name">Name</label>
@@ -61,13 +67,7 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOURFORMID';
                 <textarea id="message" name="message" required placeholder="Quick context + what you’re looking for…"></textarea>
               </div>
 
-              <!-- Optional: redirect after submit -->
-              <input type="hidden" name="_subject" value="New inquiry from alexandra site" />
               <button class="btn primary" type="submit">Send</button>
-
-              <p class="small">
-                Note: Replace <code>YOURFORMID</code> in this file with your Formspree form ID.
-              </p>
             </div>
           </form>
         </div>
