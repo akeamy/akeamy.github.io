@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { featuredProjects } from '../content/siteData.js';
+
+const projects = [
+  ...featuredProjects,
+  {
+    title: 'Requirements Traceability / Extraction',
+    blurb:
+      'Structured requirement extraction and traceability patterns with auditable steps and evaluable outputs.',
+    tags: ['RAG', 'Agents', 'Docs', 'Traceability'],
+    links: [{ label: 'Contact', href: '/contact' }],
+  },
+  {
+    title: 'Threat Intel → Detection Artifacts',
+    blurb:
+      'Pipeline that extracts indicators / CVEs / TTPs from sources and produces structured outputs for analysts.',
+    tags: ['Cyber', 'MITRE', 'Extraction', 'Reliability'],
+    links: [{ label: 'Writing', href: '/writing' }],
+  },
+];
+---
+<BaseLayout title="Projects" current="/projects">
+  <section class="section">
+    <div class="container">
+      <h1>Projects</h1>
+      <p class="lede">
+        A selection of systems across agentic workflows, retrieval, and secure deployments.
+        I keep public details high-level; happy to go deeper where appropriate.
+      </p>
+
+      <div class="grid cols3" style="margin-top: 18px;">
+        {projects.map((p) => <ProjectCard project={p} />)}
+      </div>
+
+      <div class="card pad" style="margin-top: 18px;">
+        <h2>How I build</h2>
+        <ul>
+          <li><strong>Reliability:</strong> deterministic where needed; graceful failure modes.</li>
+          <li><strong>Grounding:</strong> traceability + eval over vibes.</li>
+          <li><strong>Constraints:</strong> security, compute limits, and real users.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .cols3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pad{ padding: 18px; }
+  @media (max-width: 860px){ .cols3{ grid-template-columns: 1fr; } }
+  </style>
+</BaseLayout>
