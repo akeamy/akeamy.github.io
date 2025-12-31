@@ -11,7 +11,6 @@ const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
       <h1>Contact</h1>
       <p class="lede">
         For collaborations, speaking, consulting, or content partnerships — use the form below.
-        (No public email on this site.)
       </p>
 
       <div class="grid cols2" style="margin-top: 18px;">
@@ -21,17 +20,9 @@ const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
             {socials.map((s) => (
               <a class="btn" href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
             ))}
-            <a class="btn primary" href="#send">
-              Send a message
-            </a>
-          </div>
-
-          <p class="small" style="margin-top: 12px;">
-            Best outreach: include a 1–2 sentence brief (what you’re building + what you need).
-          </p>
 
           <div class="pill" style="margin-top: 12px;">
-            <strong>Topics:</strong> Agentic AI • RAG • Eval • Traceability • Secure deployments
+            <strong>Topics:</strong> Agentic AI • RAG • Eval • Traceability • Secure deployments • NLP • Traditional MP • LLMs • AI Education 
           </div>
         </div>
 
@@ -59,7 +50,7 @@ const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
 
               <div>
                 <label for="topic">Topic</label>
-                <input id="topic" name="topic" placeholder="Collab / speaking / consulting / content…" />
+                <input id="topic" name="topic" required />
               </div>
 
               <div>
