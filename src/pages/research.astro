@@ -8,13 +8,10 @@ const publications = [
     blurb:
       'BICA 2025 proceedings (Springer). Framework for cognitively grounded persona generation and structured AI-agent discussions to support accessible, scalable focus-group style qualitative research.',
     tags: ['AI Agents', 'Personas', 'Accessibility', 'BICA 2025'],
-    links: [
-      { label: 'DOI', href: 'https://doi.org/10.1007/978-3-032-13977-1_' },
-    ],
+    links: [{ label: 'DOI', href: 'https://doi.org/10.1007/978-3-032-13977-1_' }],
   },
   {
-    title:
-      'Normative data for the Brief Spanish-English Verbal Learning Test (HCHS/SOL)',
+    title: 'Normative data for the Brief Spanish-English Verbal Learning Test (HCHS/SOL)',
     blurb:
       "Journal of Alzheimer’s Disease (2021). Provides normative benchmarks for a bilingual verbal learning test using a large, diverse Hispanic/Latino cohort.",
     tags: ['Neuropsych', 'Norms', 'Hispanic/Latino Health', 'Journal'],
@@ -26,8 +23,7 @@ const publications = [
     ],
   },
   {
-    title:
-      'Links between acculturation and change in cognition among Hispanics/Latinos',
+    title: 'Links between acculturation and change in cognition among Hispanics/Latinos',
     blurb:
       'AAIC 2021 (AD-RCMAR Featured Research Session). Examines relationships between acculturation-related factors and longitudinal cognitive change.',
     tags: ['AAIC', 'Cognition', 'Aging', 'Oral Presentation'],
@@ -59,7 +55,7 @@ const patents = [
     blurb:
       'Provisional patent (2025; application number pending). Systems and methods for automated requirement analysis and comparison with human-in-the-loop workflows to support scalable, auditable evaluation.',
     tags: ['Patent', 'Requirements', 'HITL', 'Evaluation'],
-    links: [], // add a link later if you have a public record
+    links: [],
   },
 ];
 
@@ -69,11 +65,13 @@ const awards = [
     blurb:
       'Competitive fellowship supporting advanced data science training and research.',
     tags: ['Fellowship', 'Data Science'],
-      links: [
+    links: [
       {
         label: 'HDSI',
         href: 'https://datascience.ucsd.edu/hdsi-awards-27-scholarships-to-undergraduate-researchers/',
       },
+    ],
+  },
 ];
 ---
 
@@ -104,12 +102,11 @@ const awards = [
       <div class="grid cols3" style="margin-top: 12px;">
         {awards.map((a) => <ProjectCard project={a} />)}
       </div>
-
+    </div>
   </section>
 
   <style>
-  .cols3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pad{ padding: 18px; }
-  @media (max-width: 860px){ .cols3{ grid-template-columns: 1fr; } }
+    .cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 860px) { .cols3 { grid-template-columns: 1fr; } }
   </style>
 </BaseLayout>
