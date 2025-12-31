@@ -3,16 +3,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { featuredProjects } from '../content/siteData.js';
 
-const projects = [
-  ...featuredProjects,
-];
+// Only show these two featured projects for now
+const projects = featuredProjects.filter((p) =>
+  [
+    'Graph-RAG & Knowledge Graph Grounding',
+    'Secure / Constrained LLM Systems',
+  ].includes(p.title)
+);
 ---
+
 <BaseLayout title="Projects" current="/projects">
   <section class="section">
     <div class="container">
       <h1>Projects</h1>
       <p class="lede">
-        A selection of systems across agentic workflows, retrieval, and secure deployments.
+        A selection of systems across retrieval, grounding, and secure deployments.
         I keep public details high-level; happy to go deeper where appropriate.
       </p>
 
@@ -23,17 +28,35 @@ const projects = [
       <div class="card pad" style="margin-top: 18px;">
         <h2>How I build</h2>
         <ul>
-          <li><strong>Reliability:</strong> deterministic where needed; graceful failure modes.</li>
-          <li><strong>Grounding:</strong> traceability + eval over vibes.</li>
-          <li><strong>Constraints:</strong> security, compute limits, and real users.</li>
+          <li>
+            <strong>Model Selection:</strong> I default to the simplest approach that works — analytics, traditional ML, LLMs, or hybrid systems — avoiding unnecessary complexity.
+          </li>
+          <li>
+            <strong>Reliability by design:</strong> Deterministic workflows where appropriate, graceful degradation, and clear failure handling.
+          </li>
+          <li>
+            <strong>Evaluation:</strong> Each project includes defined metrics, evaluation pipelines, and stakeholder-aligned success criteria.
+          </li>
+          <li>
+            <strong>Performance & scale:</strong> Systems are designed to be fast, scalable, and cost-efficient in production.
+          </li>
+          <li>
+            <strong>Grounding & trust:</strong> Emphasis on traceability, evaluable outputs, and explainability.
+          </li>
+          <li>
+            <strong>Real-world constraints:</strong> Security requirements, compute limits, governance, and user workflows drive design decisions.
+          </li>
+          <li>
+            <strong>Business impact:</strong> ROI is assessed early to ensure the solution is worth building and maintaining.
+          </li>
         </ul>
       </div>
     </div>
   </section>
 
   <style>
-  .cols3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .pad{ padding: 18px; }
-  @media (max-width: 860px){ .cols3{ grid-template-columns: 1fr; } }
+    .cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .pad { padding: 18px; }
+    @media (max-width: 860px) { .cols3 { grid-template-columns: 1fr; } }
   </style>
 </BaseLayout>
