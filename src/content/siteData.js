@@ -1,16 +1,9 @@
 export const socials = [
   { label: 'LinkedIn', href: 'https://linkedin.com/in/alexandrakeamy' },
-  { label: 'GitHub', href: 'https://github.com/ajkeamy' },
+  { label: 'GitHub', href: 'https://github.com/akeamy' },
 ];
 
 export const featuredProjects = [
-  {
-    title: 'Agentic OSINT / Threat Intel Pipeline',
-    blurb:
-      'Deterministic orchestration (LangGraph-style) for RSS + search + scraping, producing structured intel summaries and reports.',
-    tags: ['Agents', 'LangGraph', 'FastAPI', 'RAG'],
-    links: [{ label: 'Projects', href: '/projects' }],
-  },
   {
     title: 'Graph-RAG & Knowledge Graph Grounding',
     blurb:
