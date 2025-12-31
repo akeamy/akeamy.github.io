@@ -1,0 +1,121 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const publications = [
+  {
+    title: 'Exploring Accessible Focus Groups with Cognitive Persona Generation and AI Agents',
+    blurb:
+      'BICA 2025 proceedings (Springer). Framework for cognitively grounded persona generation and structured AI-agent discussions to support accessible, scalable focus-group style qualitative research.',
+    tags: ['AI Agents', 'Personas', 'Accessibility', 'BICA 2025'],
+    links: [
+      { label: 'DOI', href: 'https://doi.org/10.1007/978-3-032-13977-1_' },
+    ],
+  },
+  {
+    title:
+      'Normative data for the Brief Spanish-English Verbal Learning Test (HCHS/SOL)',
+    blurb:
+      "Journal of Alzheimer’s Disease (2021). Provides normative benchmarks for a bilingual verbal learning test using a large, diverse Hispanic/Latino cohort.",
+    tags: ['Neuropsych', 'Norms', 'Hispanic/Latino Health', 'Journal'],
+    links: [
+      {
+        label: 'ResearchGate',
+        href: 'https://www.researchgate.net/publication/356861620_Normative_data_for_the_Brief_Spanish-English_Verbal_Learning_Test_for_representative_and_diverse_HispanicsLatinos_Results_from_the_Hispanic_Community_Health_StudyStudy_of_Latinos_HCHSSOL',
+      },
+    ],
+  },
+  {
+    title:
+      'Links between acculturation and change in cognition among Hispanics/Latinos',
+    blurb:
+      'AAIC 2021 (AD-RCMAR Featured Research Session). Examines relationships between acculturation-related factors and longitudinal cognitive change.',
+    tags: ['AAIC', 'Cognition', 'Aging', 'Oral Presentation'],
+    links: [],
+  },
+  {
+    title: 'Normative data for neurocognitive measures among Hispanic/Latino adults',
+    blurb:
+      'INS 2020 poster. Reports normative patterns across neurocognitive measures to support more equitable interpretation of cognitive testing.',
+    tags: ['INS', 'Poster', 'Neurocognitive', 'Equity'],
+    links: [],
+  },
+];
+
+const talks = [
+  {
+    title: 'Topic Modeling for IT Ticket Categorization',
+    blurb:
+      'LeidoSphere (2020). Applied NLP workflow for clustering and categorizing IT tickets to improve routing, reporting, and time-to-resolution.',
+    tags: ['NLP', 'Topic Modeling', 'Operations', 'Talk'],
+    links: [],
+  },
+];
+
+const patents = [
+  {
+    title:
+      'ARACHNE: Automated Requirement Analysis and Comparison for Human-in-the-loop, Next-generation Evaluation',
+    blurb:
+      'Provisional patent (2022; application number pending). Systems and methods for automated requirement analysis and comparison with human-in-the-loop workflows to support scalable, auditable evaluation.',
+    tags: ['Patent', 'Requirements', 'HITL', 'Evaluation'],
+    links: [], // add a link later if you have a public record
+  },
+];
+
+const awards = [
+  {
+    title: 'HDSI Data Science Fellowship',
+    blurb:
+      'Competitive fellowship supporting advanced data science training and research.',
+    tags: ['Fellowship', 'Data Science'],
+    links: [],
+  },
+];
+---
+
+<BaseLayout title="Research & Publications" current="/research">
+  <section class="section">
+    <div class="container">
+      <h1>Research & Publications</h1>
+      <p class="lede">
+        Publications, talks, patents, and awards. Public details are high-level; happy to share more context where appropriate.
+      </p>
+
+      <h2 style="margin-top: 18px;">Publications</h2>
+      <div class="grid cols3" style="margin-top: 12px;">
+        {publications.map((p) => <ProjectCard project={p} />)}
+      </div>
+
+      <h2 style="margin-top: 22px;">Talks</h2>
+      <div class="grid cols3" style="margin-top: 12px;">
+        {talks.map((t) => <ProjectCard project={t} />)}
+      </div>
+
+      <h2 style="margin-top: 22px;">Patents</h2>
+      <div class="grid cols3" style="margin-top: 12px;">
+        {patents.map((pt) => <ProjectCard project={pt} />)}
+      </div>
+
+      <h2 style="margin-top: 22px;">Awards & Fellowships</h2>
+      <div class="grid cols3" style="margin-top: 12px;">
+        {awards.map((a) => <ProjectCard project={a} />)}
+      </div>
+
+      <div class="card pad" style="margin-top: 18px;">
+        <h2>Notes</h2>
+        <ul>
+          <li><strong>Scope:</strong> citations and summaries are public; proprietary work stays generalized.</li>
+          <li><strong>Links:</strong> DOI / public pages included where available.</li>
+          <li><strong>Patent:</strong> application number can be added later.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <style>
+  .cols3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pad{ padding: 18px; }
+  @media (max-width: 860px){ .cols3{ grid-template-columns: 1fr; } }
+  </style>
+</BaseLayout>
