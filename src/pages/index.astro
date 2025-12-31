@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { featuredProjects, contentTopics } from '../content/siteData.js';
+import { contentTopics } from '../content/siteData.js';
 ---
 <BaseLayout title="" current="/">
   <section class="section hero">
@@ -10,13 +9,15 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
         <div class="inner">
           <div class="kicker">
             <span class="badge">Principal Investigator • Technical Lead • Former FBI</span>
-            <span class="pill">National Security AI • Defense R&D</span>
+            <span class="pill">National Security AI • Defense R&amp;D • Production Systems</span>
           </div>
 
-          <h1>AI systems for national security — that actually work</h1>
+          <h1>
+            Building production AI systems that actually work. For national security, enterprise, and beyond.
+          </h1>
 
           <p class="lede">
-            I lead R&D and build production AI for defense and intelligence. Multi-agent workflows, Graph-RAG, secure deployments in classified environments. From FBI analyst to DoD AI lead. I'm passionate about AI, Data Science, and AI education. 
+            I lead R&amp;D and build production AI for defense and intelligence, including agentic workflows, Graph-RAG, and secure deployments in constrained environments. From FBI analyst to AI engineer, I help organizations ship AI that is testable, scalable, fast, and aligned to real outcomes.
           </p>
 
           <div class="cta">
@@ -26,8 +27,8 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
           </div>
 
           <div class="mini">
-            <span class="pill">🔒 Secret clearance (former TS/SCI)</span>
-            <span class="pill">🎤 Speaker & AI educator</span>
+            <span class="pill">🔒 Clearance experience (former TS/SCI)</span>
+            <span class="pill">🎤 Speaker &amp; AI enablement</span>
             <span class="pill">💼 Consulting available</span>
           </div>
         </div>
@@ -50,32 +51,62 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
   <section class="section">
     <div class="container">
       <div class="sectionHead">
-        <h2>What I work on</h2>
+        <h2>What I build</h2>
         <p class="lede">
-          Production AI for national security and enterprise: agentic workflows, RAG systems, and secure deployments that handle real operational constraints.
+          Production AI systems across defense, enterprise automation, and applied research. I prefer the simplest approach that works, then prove it with metrics, evaluation, and stakeholder-aligned success criteria.
         </p>
       </div>
 
-      <div class="grid cols3">
+      <div class="grid cols2">
         <div class="card pad">
-          <h3>Agentic AI systems</h3>
-          <p class="small">Multi-agent orchestration for planning, structured extraction, and decision workflows. Deterministic where needed, with guardrails and traceability.</p>
+          <h3>Defense &amp; intelligence AI</h3>
+          <p class="small">
+            Agentic orchestration, Graph-RAG, and secure deployments for constrained environments. Production systems designed for real operational constraints and traceability.
+          </p>
           <div class="tags">
-            <span class="badge">LangGraph</span><span class="badge">CrewAI</span><span class="badge">PydanticAI</span>
+            <span class="badge">Agentic AI</span>
+            <span class="badge">Graph-RAG</span>
+            <span class="badge">Secure ML</span>
+            <span class="badge">GovCloud</span>
           </div>
         </div>
+
         <div class="card pad">
-          <h3>RAG</h3>
-          <p class="small">Graph-RAG, fact verification, knowledge graphs, retrieval patterns that improve traceability and reduce hallucinations. Built for high-stakes environments.</p>
+          <h3>Enterprise AI automation</h3>
+          <p class="small">
+            AI-enabled workflows for HR, legal, InfoSec, and business operations. From proof-of-concept to deployed solutions with reliability, performance, and maintainability.
+          </p>
           <div class="tags">
-            <span class="badge">Graph-RAG</span><span class="badge">Rerank</span><span class="badge">Evaluation</span>
+            <span class="badge">Process Automation</span>
+            <span class="badge">Enterprise RAG</span>
+            <span class="badge">LLMOps</span>
+            <span class="badge">Evaluation</span>
           </div>
         </div>
+
         <div class="card pad">
-          <h3>Secure / constrained deployments</h3>
-          <p class="small">Air-gapped workflows, GovCloud, classified networks. Fine-tuning and LLMOps where you can't call the internet.</p>
+          <h3>AI research &amp; technical education</h3>
+          <p class="small">
+            Research spanning neuroscience, healthcare analytics, and AI systems. I also create technical content on what works (and what breaks) in production.
+          </p>
           <div class="tags">
-            <span class="badge">Secure AI</span><span class="badge">GovCloud</span><span class="badge">LLMOps</span>
+            <span class="badge">Research</span>
+            <span class="badge">Healthcare</span>
+            <span class="badge">Technical Writing</span>
+            <span class="badge">Enablement</span>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <h3>Consulting &amp; speaking</h3>
+          <p class="small">
+            Architecture guidance for teams building production AI, plus talks and workshops on agentic systems, evaluation frameworks, and secure deployments.
+          </p>
+          <div class="tags">
+            <span class="badge">Consulting</span>
+            <span class="badge">Speaking</span>
+            <span class="badge">Technical Advisory</span>
+            <span class="badge">Workshops</span>
           </div>
         </div>
       </div>
@@ -85,11 +116,37 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
   <section class="section">
     <div class="container">
       <div class="sectionHead">
-        <h2>Featured projects</h2>
-        <p class="lede">Systems I've built for defense, intelligence, and enterprise — more in the Projects tab.</p>
+        <h2>Background</h2>
+        <p class="lede">
+          My path from FBI analyst to defense AI engineer gives me a practical lens on what “production-ready” really means. I’ve built systems for constrained environments, published neuroscience research, and helped teams automate workflows from HR to legal ops. Now I’m documenting the lessons: the design patterns that work, the failure modes that don’t, and how to ship AI systems that solve real problems.
+        </p>
       </div>
-      <div class="grid cols3">
-        {featuredProjects.map((p) => <ProjectCard project={p} />)}
+
+      <div class="grid cols2">
+        <div class="card pad">
+          <h3>Education</h3>
+          <p class="small">
+            B.S. in Data Science, UC San Diego. M.S. in Analytics, Georgia Tech.
+          </p>
+          <div class="tags">
+            <span class="badge">Data Science</span>
+            <span class="badge">Analytics</span>
+            <span class="badge">Applied AI</span>
+          </div>
+        </div>
+
+        <div class="card pad">
+          <h3>Fun facts</h3>
+          <p class="small">
+            Outside of work, I love strength training, hiking, and filmmaking. I’m a national champion jump roper, and I have a soft spot for pugs.
+          </p>
+          <div class="tags">
+            <span class="badge">Strength Training</span>
+            <span class="badge">Hiking</span>
+            <span class="badge">Jump Rope</span>
+            <span class="badge">Pugs</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -97,7 +154,7 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
   <section class="section">
     <div class="container">
       <div class="sectionHead">
-        <h2>Teaching & building in public</h2>
+        <h2>Teaching &amp; building in public</h2>
         <p class="lede">Practical content on what works (and what breaks) in production AI.</p>
       </div>
 
@@ -110,9 +167,9 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
         ))}
 
         <div class="card pad callout">
-          <h3>Speaking & consulting</h3>
+          <h3>Speaking, consulting, and technical content</h3>
           <p class="small">
-            Available for talks on agentic AI, RAG systems, and secure ML deployments. Consulting on production AI architecture, team building, and evaluation frameworks for defense and enterprise.
+            Available for speaking, consulting, and technical content creation on agentic AI, RAG systems, secure deployments, and evaluation frameworks. I help teams design systems that are measurable, reliable, and worth the complexity.
           </p>
           <a class="btn primary" href="/contact">Contact</a>
         </div>
@@ -121,35 +178,33 @@ import { featuredProjects, contentTopics } from '../content/siteData.js';
   </section>
 
   <style>
-  .hero{ padding-top: 26px; }
-  .heroGrid{ grid-template-columns: 1.35fr .85fr; align-items: stretch; }
-  .heroCard{ padding: 18px; }
-  .heroCard .inner{ padding: 14px; }
-  .kicker{ display:flex; flex-wrap:wrap; gap: 10px; margin-bottom: 14px; }
-  .cta{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-  .mini{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-  .headshot{ position: relative; overflow:hidden; }
-  .headshot img{
-    width: 100%; height: 100%; object-fit: cover; display:block;
-    filter: grayscale(10%);
-    transform: scale(1.02);
-  }
-  .overlay{
-    position:absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.55));
-    display:flex; align-items:flex-end; padding: 18px;
-  }
-  .row{ display:flex; flex-wrap:wrap; gap: 10px; }
-  .sectionHead{ margin-bottom: 16px; }
-  .cols3{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .cols2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pad{ padding: 18px; }
-  .tags{ display:flex; gap: 8px; flex-wrap:wrap; margin-top: 10px; }
-  .callout{ display:flex; flex-direction:column; gap: 10px; }
-  @media (max-width: 980px){ .heroGrid{ grid-template-columns: 1fr; } }
-  @media (max-width: 860px){
-    .cols3{ grid-template-columns: 1fr; }
-    .cols2{ grid-template-columns: 1fr; }
-  }
+    .hero{ padding-top: 26px; }
+    .heroGrid{ grid-template-columns: 1.35fr .85fr; align-items: stretch; }
+    .heroCard{ padding: 18px; }
+    .heroCard .inner{ padding: 14px; }
+    .kicker{ display:flex; flex-wrap:wrap; gap: 10px; margin-bottom: 14px; }
+    .cta{ display:flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .mini{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .headshot{ position: relative; overflow:hidden; }
+    .headshot img{
+      width: 100%; height: 100%; object-fit: cover; display:block;
+      filter: grayscale(10%);
+      transform: scale(1.02);
+    }
+    .overlay{
+      position:absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,.55));
+      display:flex; align-items:flex-end; padding: 18px;
+    }
+    .row{ display:flex; flex-wrap:wrap; gap: 10px; }
+    .sectionHead{ margin-bottom: 16px; }
+    .cols2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pad{ padding: 18px; }
+    .tags{ display:flex; gap: 8px; flex-wrap:wrap; margin-top: 10px; }
+    .callout{ display:flex; flex-direction:column; gap: 10px; }
+    @media (max-width: 980px){ .heroGrid{ grid-template-columns: 1fr; } }
+    @media (max-width: 860px){
+      .cols2{ grid-template-columns: 1fr; }
+    }
   </style>
 </BaseLayout>
