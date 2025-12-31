@@ -16,13 +16,15 @@ const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
       <div class="grid cols2" style="margin-top: 18px;">
         <div class="card pad">
           <h2>Find me</h2>
+
           <div class="links">
             {socials.map((s) => (
               <a class="btn" href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
             ))}
+          </div>
 
           <div class="pill" style="margin-top: 12px;">
-            <strong>Topics:</strong> Agentic AI • RAG • Eval • Traceability • Secure deployments • NLP • Traditional MP • LLMs • AI Education 
+            <strong>Topics:</strong> Agentic AI • RAG • Eval • Traceability • Secure deployments • NLP • Traditional MP • LLMs • AI Education
           </div>
         </div>
 
@@ -30,14 +32,14 @@ const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
           <h2>Send a message</h2>
 
           <form action={FORMSUBMIT_ENDPOINT} method="POST">
-            <!-- FormSubmit config -->
+            {/* FormSubmit config */}
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_subject" value="New inquiry from alexandra site" />
             <input type="hidden" name="_template" value="table" />
             <input type="hidden" name="_next" value="https://akeamy.github.io/contact?sent=1" />
             <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 
-            <div style="display:grid; gap: 12px;">
+            <div class="formGrid">
               <div>
                 <label for="name">Name</label>
                 <input id="name" name="name" required />
@@ -55,10 +57,15 @@ const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
 
               <div>
                 <label for="message">Message</label>
-                <textarea id="message" name="message" required placeholder="Quick context + what you’re looking for…"></textarea>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Quick context + what you’re looking for…"
+                ></textarea>
               </div>
 
-              <button class="btn primary" type="submit">Send</button>
+              <button class="btn primary submitBtn" type="submit">Send</button>
             </div>
           </form>
         </div>
@@ -67,9 +74,23 @@ const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajkeamy@gmail.com';
   </section>
 
   <style>
-  .cols2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pad{ padding: 18px; }
-  .links{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 10px; }
-  @media (max-width: 860px){ .cols2{ grid-template-columns: 1fr; } }
+    .cols2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pad{ padding: 18px; }
+    .links{ display:flex; gap: 10px; flex-wrap:wrap; margin-top: 10px; }
+
+    .formGrid{
+      display:grid;
+      gap: 12px;
+    }
+
+    /* Key fix: keep the button from stretching full-width and align it right */
+    .submitBtn{
+      justify-self: end;
+      width: auto;
+    }
+
+    @media (max-width: 860px){
+      .cols2{ grid-template-columns: 1fr; }
+    }
   </style>
 </BaseLayout>
