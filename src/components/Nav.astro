@@ -18,12 +18,14 @@ const nav = [
 
     <nav class="nav" aria-label="Primary navigation">
       {nav.map((item) => (
-        <a class:list={['link', current === item.href ? 'active' : '']} href={item.href}>
+        <a
+          class:list={['link', current === item.href ? 'active' : '']}
+          href={item.href}
+        >
           {item.label}
         </a>
       ))}
     </nav>
-
   </div>
 </header>
 
@@ -50,12 +52,21 @@ const nav = [
   min-width: 230px;
 }
 .dot{
-  width: 10px; height: 10px; border-radius: 999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   box-shadow: 0 0 0 6px var(--accent-soft);
 }
-.name{ font-weight: 800; letter-spacing: -0.02em; }
-.role{ color: var(--muted); font-size: .95rem; display:none; }
+.name{
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.role{
+  color: var(--muted);
+  font-size: .95rem;
+  display:none;
+}
 .nav{
   display:flex;
   align-items:center;
@@ -65,7 +76,6 @@ const nav = [
   border-radius: 999px;
   background: rgba(255,255,255,.55);
 }
-:global(html[data-theme="dark"]) .nav{ background: rgba(255,255,255,.06); }
 .link{
   padding: .5rem .75rem;
   border-radius: 999px;
@@ -78,38 +88,22 @@ const nav = [
   background: var(--accent-soft);
   border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
 }
-.toggles{ display:flex; gap: 10px; }
-@media (min-width: 860px){ .role{ display:inline; } }
-@media (max-width: 740px){ .nav{ display:none; } }
+@media (min-width: 860px){
+  .role{ display:inline; }
+}
+@media (max-width: 740px){
+  .nav{ display:none; }
+}
 </style>
 
 <script>
   const root = document.documentElement;
 
-  // Theme
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme && savedTheme !== 'light') root.setAttribute('data-theme', savedTheme);
+  // Force light theme always
+  root.removeAttribute('data-theme');
+  localStorage.removeItem('theme');
 
-  // Accent (default is pink via CSS; we store optional override = sky)
+  // Optional: keep accent preference (remove if you want to lock accent color too)
   const savedAccent = localStorage.getItem('accent');
   if (savedAccent) root.setAttribute('data-accent', savedAccent);
-
-  function toggleTheme(){
-    const cur = root.getAttribute('data-theme');
-    const next = cur === 'dark' ? 'light' : 'dark';
-    if (next === 'light') root.removeAttribute('data-theme');
-    else root.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', next);
-  }
-
-  function toggleAccent(){
-    const cur = root.getAttribute('data-accent');
-    const next = cur === 'sky' ? '' : 'sky'; // empty = pink default
-    if (!next) root.removeAttribute('data-accent');
-    else root.setAttribute('data-accent', next);
-    localStorage.setItem('accent', next);
-  }
-
-  document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
-  document.getElementById('accentBtn')?.addEventListener('click', toggleAccent);
 </script>
